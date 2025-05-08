@@ -1,5 +1,17 @@
 // 4U Bot - Discord.js
 // Dependencies: discord.js, dotenv, sqlite3
+// Mantém o bot online no Render
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('O bot está online!');
+});
+
+app.listen(PORT, () => {
+  console.log(`Servidor a correr na porta ${PORT}`);
+});
 
 require('dotenv').config();
 const { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, PermissionsBitField, MessageFlags } = require('discord.js');
